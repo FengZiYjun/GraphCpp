@@ -4,18 +4,20 @@
 class Edge;
 
 class Node{
-private:
-	// index starts from 0
-	int index;
-	std::vector<Edge*> In;
-	std::vector<Edge*> Out;
-	
+
 public:
 	Node(int);
 	void addIn(Edge*);
 	void addOut(Edge*);
 	void removeOut(Edge*);
 	void removeIn(Edge*);
+	
+private:
+	// index starts from 0
+	int index;
+	std::vector<Edge*> In;
+	std::vector<Edge*> Out;
+	
 };
 
 class Edge{
@@ -34,9 +36,6 @@ public:
 	add or delete nodes and edges
 */
 class GraphManager{
-	std::vector<Node*> pNode;
-	std::vector<Edge*> pEdge;
-	
 public:
 	GraphManager();
 	
@@ -54,13 +53,18 @@ public:
 	void addEdge(int, int);
 	
 	bool deleteEdge(int, int);
-
+	
+private:
+	std::vector<Node*> pNode;
+	std::vector<Edge*> pEdge;
+	
 };
 
 class GraphDisplay{
-	GraphManager& manager;
 public:
 	GraphDisplay(GraphManager&);
 	void loadGraph(const GraphManager&);
 	void showBasicInfo();
+private:
+	GraphManager& manager;
 };
