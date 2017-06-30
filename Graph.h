@@ -61,10 +61,14 @@ private:
 	
 };
 
+/**
+	The private member should be const, but methods need to make sure the 
+	read-only accessiblity. 
+*/
 class GraphDisplay{
 public:
 	GraphDisplay(GraphManager&);
-	void loadGraph(const GraphManager&);
+	void loadGraph(GraphManager&);
 	void showBasicInfo(std::ostream&);
 private:
 	GraphManager& manager;

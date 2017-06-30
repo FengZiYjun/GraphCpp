@@ -116,10 +116,15 @@ GraphDisplay::GraphDisplay(GraphManager& ref):manager(ref){
 
 }
 	
-void GraphDisplay::loadGraph(const GraphManager& ref){
-		this->manager = ref;
+void GraphDisplay::loadGraph(GraphManager& ref){
+	// assignment operator is needed to make reference assignment available ? 
+	//this->manager = ref;
 }
 
+/**
+	It is weird that the starting letters are missing...
+	And sth. must be wrong for the methods called here. 
+*/
 void GraphDisplay::showBasicInfo(ostream& out){
 	out <<"The number of Nodes: " + manager.numOfNode() <<endl
 		<<"The number of Edge: " + manager.numOfEdge() <<endl;
