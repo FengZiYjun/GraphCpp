@@ -16,6 +16,8 @@ int main(){
 	//GD.loadGraph(GM);
 	GD.showBasicInfo();
 	
+	cout<<"num of nodes: " << GM.numOfNode() << endl;
+	
 	GM.deleteNode(0);
 	GM.deleteNode(1);
 	

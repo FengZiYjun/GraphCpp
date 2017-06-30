@@ -5,18 +5,18 @@ using namespace std;
 Node::Node(int i){
 	index = i;
 }
-	void Node::addIn(Edge* e){
-		In.push_back(e);
-	}
-	void Node::addOut(Edge* e){
-		Out.push_back(e);
-	}
-	void Node::removeOut(Edge* e){
-		remove(Out.begin(),Out.end(),e);
-	}
-	void Node::removeIn(Edge* e){
-		remove(In.begin(),In.end(),e);
-	}
+void Node::addIn(Edge* e){
+	In.push_back(e);
+}
+void Node::addOut(Edge* e){
+	Out.push_back(e);
+}
+void Node::removeOut(Edge* e){
+	remove(Out.begin(),Out.end(),e);
+}
+void Node::removeIn(Edge* e){
+	remove(In.begin(),In.end(),e);
+}
 
 
 Node* Edge::getFrom(){
@@ -59,6 +59,7 @@ void Edge::addTo(Node* p){
 			pNode.push_back(p);
 		}else{
 			//throw nullptr error;
+			cout<<"fail to add a node."<<endl;
 		}
 	}
 	
@@ -85,6 +86,7 @@ void Edge::addTo(Node* p){
 			
 		}else{
 			// throw 
+			cout<<"Error: fail to add an edge."<<endl;
 		}
 	}
 	
@@ -104,6 +106,7 @@ void Edge::addTo(Node* p){
 			delete p;
 		}else{
 			// throw
+			cout<<"fail to find the node."<<endl;
 		}
 		return true;
 	}
