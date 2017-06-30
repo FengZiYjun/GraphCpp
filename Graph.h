@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -64,7 +65,7 @@ class GraphDisplay{
 public:
 	GraphDisplay(GraphManager&);
 	void loadGraph(const GraphManager&);
-	void showBasicInfo();
+	void showBasicInfo(std::ostream&);
 private:
 	GraphManager& manager;
 };
