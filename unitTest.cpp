@@ -19,8 +19,13 @@ int main(){
 	GraphManager& ref = GM;
 	cout<<"num of nodes: " << ref.numOfNode() << endl;
 	
-	GM.deleteNode(0);
-	GM.deleteNode(1);
+	if(GM.deleteNode(0)){
+		cout<<"deleted!"<<endl;
+	}
+	if(GM.deleteNode(1)){
+		cout<<"deleted!"<<endl;
+	}
 	
 	return 0;
 }
+

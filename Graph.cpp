@@ -126,7 +126,7 @@ void GraphDisplay::loadGraph(GraphManager& ref){
 	And sth. must be wrong for the methods called here. 
 */
 void GraphDisplay::showBasicInfo(ostream& out){
-	out <<"The number of Nodes: " + manager.numOfNode() <<endl
-		<<"The number of Edge: " + manager.numOfEdge() <<endl;
+	out << "  " << "The number of Nodes: " + manager.numOfNode() <<endl;
+	out << "The number of Edge: " + manager.numOfEdge() <<endl;
 }
 
