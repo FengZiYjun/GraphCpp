@@ -1,3 +1,9 @@
+/*---------------------------------------------------
+
+	how to destruct the node and edge ? 
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,7 +17,14 @@ public:
 	void addIn(Edge*);
 	void addOut(Edge*);
 	void removeOut(Edge*);
-	void removeIn(Edge*);
+	void removeIn(Edge*);/* 
+	int numOfOutEdge();
+	int numOfInEdge();
+	Edge* getInEdge(int);
+	Edge* getOutEdge(int); */
+	int getIndex();
+	
+	~Node();
 	
 private:
 	// index starts from 0
@@ -22,14 +35,16 @@ private:
 };
 
 class Edge{
-private:
-	Node* from;
-	Node* to;
 public:
 	Node* getFrom();
 	void addFrom(Node*);
 	Node* getTo();
 	void addTo(Node*);
+	~Edge();
+	
+private:
+	Node* from;
+	Node* to;
 };
 
 

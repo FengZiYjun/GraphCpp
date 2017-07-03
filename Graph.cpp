@@ -2,9 +2,27 @@
 #include "Graph.h"
 using namespace std;
 
+/**
+	All member functions of Node class
+*/
 Node::Node(int i){
 	index = i;
 }
+
+Node::~Node(){
+	// It is the node class's responsibility to 
+	// delete all edges it connects.
+	int numOfOutEdge = Out.size();
+	int numOfInEdge = In.size();
+			
+	for(int i=0;i<numOfOutEdge;i++){
+		delete Out[i];
+	}
+	for(int i=0;i<numOfInEdge;i++){
+		delete In[i];
+	}
+}
+
 void Node::addIn(Edge* e){
 	In.push_back(e);
 }
@@ -18,7 +36,31 @@ void Node::removeIn(Edge* e){
 	remove(In.begin(),In.end(),e);
 }
 
+int Node::numOfInEdge(){
+	return In.size();
+}
 
+int Node::numOfOutEdge(){
+	return Out.size();
+}
+
+Edge* Node::getInEdge(int index){
+	return In[index];
+}
+
+
+Edge* Node::getOutEdge(int index){
+	return Out[index];
+}
+
+int Node::getIndex(){
+	return index;
+}
+
+/**
+	All member functions of Edge class
+	
+*/
 Node* Edge::getFrom(){
 	return from;
 }
@@ -37,7 +79,8 @@ void Edge::addTo(Node* p){
 
 
 /*
-	add or delete nodes and edges
+	Member functions of GraphManager class
+	
 */
 
 GraphManager::GraphManager(){
@@ -63,12 +106,17 @@ void GraphManager::addNode(){
 	}
 }
 	
-bool GraphManager::deleteNode(int index){
-	if(index+1 > pNode.size())
-		return false;
-	Node* p = pNode[index];
-	delete p;
-	pNode.erase(pNode.begin() + index);
+bool GraphManager::deleteNode(int indexOfNode){
+	int numOfNode = pNode.size();
+	for(int i=0;i<numOfNode;i++){
+		Node* np = pNode[i];
+		if(np->getIndex()==indexOfNode){
+			delete np;
+			cout<<"delete the node " + indexOfNode << endl;
+		}
+	}
+	
+	pNode.erase(pNode.begin() + indexOfNode);
 	return true;
 }
 
@@ -112,6 +160,10 @@ bool GraphManager::deleteEdge(int i, int j){
 }
 
 
+/**
+	member functions of GraphDisplay class
+
+*/
 GraphDisplay::GraphDisplay(GraphManager& ref):manager(ref){
 
 }
