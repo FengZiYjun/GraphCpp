@@ -63,6 +63,12 @@ void StableMatching::getPreferenceList(istream& in){
 	}
 }
 
+void StableMatching::match(int* res){
+	int matched = 0;
+	while(matched <= numOfBoys){
+		
+	}
+}
 
 
 
