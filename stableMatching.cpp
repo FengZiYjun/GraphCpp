@@ -23,15 +23,19 @@ void Person::loadList(int* list, int readInNum){
 /**
 	class Boy
 */
-Boy::Boy(int id):Person(id){
+Boy::Boy(int id):Person(id), requestGirl(0){
 	
 }
 
+int Boy::nextGirlID(){
+	requestGirl += 1;
+	return requestGirl;
+}
 
 /**
 	class Girl
 */
-Girl::Girl(int id):Person(id){
+Girl::Girl(int id):Person(id), loveBoy(0){
 	
 }
 
@@ -65,8 +69,14 @@ void StableMatching::getPreferenceList(istream& in){
 
 void StableMatching::match(int* res){
 	int matched = 0;
+	int* girls = new int[numOfBoys];
 	while(matched <= numOfBoys){
-		
+		for(int i=0;i<numOfBoys;i++){
+			int girlD = boys[i]->nextGirlID();
+			Girl[girlD]->loveBoy
+			// make a ranking list for all boys from each girl's perpective. 
+			
+		}
 	}
 }
 

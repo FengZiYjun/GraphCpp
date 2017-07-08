@@ -9,7 +9,7 @@ class Person{
 public:
 	Person(int);
 	void loadList(int*, int);
-private:
+protected:
 	int id;
 	int* preference_list;	
 };
@@ -17,11 +17,16 @@ private:
 class Boy: public Person{
 public:
 	Boy(int);
+	int nextGirlID();
+private:
+	int requestGirl;
 };
 
 class Girl: public Person{
 public:
 	Girl(int);
+private:
+	int loveBoy;
 };
 
 
