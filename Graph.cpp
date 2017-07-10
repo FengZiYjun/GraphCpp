@@ -61,6 +61,14 @@ int Node::getIndex(){
 	All member functions of Edge class
 	
 */
+
+Edge::~Edge(){
+	// it is the Edge class's responsibility to 
+	// delete all connection info of the node it connects
+	from->removeOut(this);
+	to->removeIn(this);
+}
+
 Node* Edge::getFrom(){
 	return from;
 }
