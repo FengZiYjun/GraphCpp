@@ -19,7 +19,7 @@ int main(){
 	GraphManager& ref = GM;
 	cout<<"num of nodes: " << ref.numOfNode() << endl;
 	
-	// sth. wrong with destructor
+	// sth. wrong with the destructor
 	
 	if(GM.deleteNode(0)){
 		cout<<"deleted!"<<endl;
